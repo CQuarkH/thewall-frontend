@@ -1,0 +1,53 @@
+---
+import { routes } from "../../router/routes";
+import { Icon } from "astro-icon/components";
+import CreatePostButton from "@components/molecules/CreatePostButton";
+import LogoutButton from "@components/molecules/LogoutButton";
+import Profile from "@components/atoms/Profile";
+
+const currentPath = Astro.url.pathname;
+---
+
+<aside
+    class="[grid-area:nav] flex flex-col border-r border-white/10 justify-between h-full py-6 px-8 bg-black"
+>
+    <article class="flex flex-col gap-20">
+        <!-- profile -->
+        <Profile client:load />
+
+        <!-- navigation -->
+        <section>
+            <nav class="flex flex-col gap-6">
+                {
+                    routes.map((route) => (
+                        <a
+                            href={route.path}
+                            class={`flex items-center gap-4 text-lg transition-all duration-300 ${currentPath === route.path ? "text-yellow-500" : "text-white hover:text-gray-400"}`}
+                        >
+                            <Icon name={route.icon} size={24} />
+
+                            {route.name}
+                        </a>
+                    ))
+                }
+
+                <CreatePostButton client:load>
+                    <span
+                        class="flex items-center gap-4 cursor-pointer text-white hover:text-gray-400 transition-all duration-300"
+                    >
+                        <Icon name="jam:plus" size={24} />
+                        New Post
+                    </span>
+                </CreatePostButton>
+            </nav>
+        </section>
+    </article>
+
+    <section class="flex flex-col gap-8">
+        <LogoutButton client:load>
+            <Icon name="jam:log-out" size={24} />
+            Logout
+        </LogoutButton>
+        <p class="text-sm text-white/50 text-center">© The Wall</p>
+    </section>
+</aside>

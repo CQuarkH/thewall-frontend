@@ -1,0 +1,25 @@
+---
+import Logo from "@components/atoms/Logo.astro";
+import AuthButton from "@components/molecules/AuthButton";
+let isLogedIn = false;
+
+if (Astro.cookies.has("token")) {
+    const cookie = Astro.cookies.get("token");
+    isLogedIn = cookie !== null;
+}
+---
+
+<header
+    class="[grid-area:header] flex items-center bg-transparent border-b border-white/10 p-6"
+>
+    <section class="flex max-w-xl">
+        <Logo />
+    </section>
+    {
+        !isLogedIn && (
+            <section class="flex justify-end flex-1 items-center">
+                <AuthButton client:load />
+            </section>
+        )
+    }
+</header>

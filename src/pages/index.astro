@@ -1,0 +1,71 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AuthButton from "@components/molecules/AuthButton";
+---
+
+<Layout title="The Wall">
+	<main
+		class="[grid-area:main] flex flex-col items-center overflow-y-auto py-8"
+	>
+		<article class="flex flex-col w-[990px] mt-6 gap-14">
+			<section class="flex flex-col gap-6 w-full">
+				<h1 class="text-4xl font-bold">
+					Welcome to TheWall: The Social Network of the Future
+				</h1>
+				<p>
+					TheWall is a twitter-like app, that allows you to share your
+					thoughts in real time, connect with people worldwide, and
+					discover amazing content. Join our community and be part of
+					a global conversation.
+				</p>
+			</section>
+			<section class="flex w-full">
+				<img
+					src="/images/landing-1.png"
+					class="border border-white/20 rounded-lg shadow-lg shadow-white/10"
+				/>
+			</section>
+			<section class="flex flex-col w-full gap-6">
+				<h1 class="text-4xl font-bold">Connect, Share, and Discover</h1>
+				<p>
+					On TheWall, you can create posts, comment on posts, and like
+					posts. Engage with content and connect with others in
+					meaningful ways.
+				</p>
+			</section>
+			<section class="flex w-full max-w-full gap-8">
+				<img
+					src="/images/landing-2.png"
+					class="flex-1 object-cover max-w-[50%] h-60 border border-white/20 rounded-lg shadow-lg shadow-white/10"
+				/>
+				<img
+					src="/images/landing-4.png"
+					class="flex-1 object-cover max-w-[50%] border border-white/20 rounded-lg shadow-lg shadow-white/10"
+				/>
+			</section>
+			<section class="flex flex-col w-full gap-6">
+				<h1 class="text-4xl font-bold">Be Part of TheWall Community</h1>
+				<p>
+					Join our community today and start sharing your thoughts,
+					connecting with others, and discovering amazing content.
+				</p>
+				<div class="flex w-full justify-center">
+					<AuthButton client:load />
+				</div>
+			</section>
+		</article>
+	</main>
+</Layout>
+
+<style>
+	.public-grid {
+		display: grid;
+		grid-template-areas:
+			"header header header"
+			"main main main"
+			"main main main";
+		grid-template-rows: 10vh 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 1rem;
+	}
+</style>

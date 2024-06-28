@@ -1,0 +1,42 @@
+{
+  "name": "natter-web",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.7.0",
+    "@astrojs/react": "^3.6.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "@firebase/storage": "^0.12.5",
+    "@fontsource-variable/tilt-neon": "^5.0.5",
+    "@formkit/tempo": "^0.1.1",
+    "@hookform/resolvers": "^3.6.0",
+    "@nanostores/react": "^0.7.2",
+    "@react-pdf/renderer": "^3.4.4",
+    "@types/firebase": "^3.2.1",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "astro": "^4.10.3",
+    "astro-icon": "^1.1.0",
+    "firebase": "^10.12.2",
+    "html2canvas": "^1.4.1",
+    "nanostores": "^0.10.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-dropzone-esm": "^15.0.1",
+    "react-hook-form": "^7.52.0",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@iconify-json/jam": "^1.1.8",
+    "@iconify-json/mdi": "^1.1.66"
+  }
+}

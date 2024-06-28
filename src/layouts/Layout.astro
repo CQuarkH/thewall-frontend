@@ -1,0 +1,64 @@
+---
+import Header from "@components/layout/Header.astro";
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="public-grid">
+		<Header />
+		<slot />
+	</body>
+</html>
+<style is:global>
+	::-webkit-scrollbar {
+		width: 8px;
+		height: 8px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: #c8c8c8;
+		border-radius: 3px;
+	}
+	body {
+		display: flex;
+		justify-content: center;
+		max-height: 100vh;
+		height: 100vh;
+		width: 100%;
+		color: #ffffff;
+		font-family: "TiltNeon";
+		background: #000000;
+	}
+
+	.public-grid {
+		display: grid;
+		grid-template-areas:
+			"header header header"
+			"main main main"
+			"main main main";
+		grid-template-rows: 10vh 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 1rem;
+	}
+
+	@font-face {
+		font-family: "TiltNeon";
+		src: url("/fonts/TiltNeon-Regular.woff") format("woff");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+</style>

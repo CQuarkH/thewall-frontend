@@ -1,0 +1,28 @@
+---
+import HomeLayout from "@layouts/HomeLayout.astro";
+import PostCard from "@components/atoms/PostCard";
+import type { Post } from "@models/types";
+import { fetchPostsByUsername } from "@services/postsService";
+const username = Astro.params.username;
+const posts: Post[] = await fetchPostsByUsername(username ?? "cquark");
+---
+
+<HomeLayout title="Your Posts">
+    <main
+        class="[grid-area:main] flex flex-col items-center gap-8 p-6 overflow-y-auto"
+    >
+        <article class="flex flex-col gap-8 w-full max-w-4xl">
+            <h1 class="text-3xl font-bold mb-4">Your Posts</h1>
+            <ul class="grid gap-4">
+                {
+                    posts.length === 0 && (
+                        <li class="text-gray-500">
+                            You have not created any posts yet.
+                        </li>
+                    )
+                }
+                {posts.map((post) => <PostCard post={post} client:load />)}
+            </ul>
+        </article>
+    </main>
+</HomeLayout>
